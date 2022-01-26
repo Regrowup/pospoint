@@ -66,9 +66,9 @@ mysqli_close($conn);
 
 <?php include ("header.php");?>
 
-
+<div class="container">
   <form class="modal-content" action=""  method="POST">
-    <div class="container">
+    
       <h3>Sign Up</h3>
      
       
@@ -88,14 +88,12 @@ mysqli_close($conn);
        
         <button type="submit" name="signup" class="signupbtn">Sign Up</button>
       </div>
-    </div>
+    
   </form>
   
- 
+  </div>
   
-  
-  
-</div>
+
 
 <script>
 // Get the modal
