@@ -48,8 +48,8 @@
 
 <div class="w3-black">
   <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button> | <?php echo date('Y-m-d h:i:s');?>
-  <div class="w3-bar-item w3-button w3-center">
-  <h3> Pospoint </h3>
+  <div class="w3-bar-item w3-button w3-right">
+  <h5> Pospoint </h5>
   </div>
 </div>
 
