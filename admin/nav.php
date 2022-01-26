@@ -48,6 +48,9 @@
 
 <div class="w3-black">
   <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button> | <?php echo date('Y-m-d h:i:s');?>
+  <div class="w3-bar-item w3-center">
+  <h6> Restaurant Name</h6>
+  </div>
   <div class="w3-bar-item w3-button w3-right">
   <h6> Pospoint </h6>
   </div>
