@@ -327,7 +327,7 @@ input[type=text] {
       
             <span class="w3-bar-item w3-right">Pospoint</span>
         </div>
-        <div class="w3-sidebar w3-bar-block w3-card" style="width:40%;right:0;">
+        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;">
   <h3 class="w3-bar-item">Add Amount </h3>
 
   <br></br>
