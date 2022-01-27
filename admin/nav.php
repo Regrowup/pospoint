@@ -186,6 +186,8 @@ body {
   width: 100%;  
   margin: 20px;  
   color:black;  
+  margin-bottom: 0%;
+  margin-right:0%;
 }  
 .calc-body {  
   width: 275px;  
