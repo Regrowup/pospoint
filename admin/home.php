@@ -374,7 +374,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:150px;height:150px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -392,7 +392,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:150px;height:150px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -410,7 +410,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -430,7 +430,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -448,7 +448,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -466,7 +466,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -484,7 +484,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -504,7 +504,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -522,7 +522,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -540,7 +540,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
@@ -558,7 +558,7 @@ if(!isset($_SESSION['valid'])) {
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
              
                     </div>
                     <div class="product_details">
