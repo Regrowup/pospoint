@@ -69,3 +69,43 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 </div>
 
 <div class="w3-container">
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:248px;" id="mySidebar"><br>
+           
+           <div class="w3-bar-block">
+               <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
+               <div class="w3-container w3-row">
+               <a href="/dashboard/home.php" class="w3-bar-item w3-button">Menu</a>
+               <hr>
+               <a href="#breakfast" class="w3-bar-item w3-button w3-padding">Breakfast</a>
+               <hr>
+               
+               <a href="#main" class="w3-bar-item w3-button w3-padding">Main</a>
+               <hr>
+               
+               <a href="#" class="w3-bar-item w3-button w3-padding">Cold Snacks</a>
+              
+               <hr>
+               
+               <a href="#" class="w3-bar-item w3-button w3-padding">Hot Snacks</a>
+              
+               <hr>
+               
+               <a href="#" class="w3-bar-item w3-button w3-padding">Salads</a>
+              
+               <hr>
+               <a href="#" class="w3-bar-item w3-button w3-padding">Pasta</a>
+               
+               <hr>
+               <a href="#" class="w3-bar-item w3-button w3-padding">Seafood</a>
+               <hr>
+               <a href="#" class="w3-bar-item w3-button w3-padding">Drinks</a>
+               
+               <hr>
+           
+                   <a href="#" class="w3-bar-item w3-button">Setting</a> 
+                <hr>
+             
+               <a href="/logout.php" class="w3-bar-item w3-button">Log Out</a>
+               </div>
+           </div>
+       </nav>
