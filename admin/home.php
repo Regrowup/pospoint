@@ -349,7 +349,74 @@ if(!isset($_SESSION['valid'])) {
 }
  </style>     
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+          <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:40%;margin-top:1.5%;">
 
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Eggs benedinct with salmon</h4>
+      <p class="card-text">2</p>
+      <p class="card-text">3.00EUR
+
+      </p>
+      
+      <a href="#" class="card-link">X</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Eggs benedinct with salmon</h4>
+      <p class="card-text">2</p>
+      <p class="card-text">3.00EUR
+
+      </p>
+      
+      <a href="#" class="card-link">X</a>
+    </div>
+  </div>
+
+  </div>
+  
+
+<div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:60%;margin-top:21%">
+<div class="calc-body">  
+    <div class="calc-screen">  
+      <div class="calc-operation"> 25 + 10 = </div>  
+      <div class="calc-typed"> 35 <span class="blink-me"> _ </span> </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button c"> C </div>  
+      <div class="button l"> ? </div>  
+      <div class="button l"> % </div>  
+      <div class="button l"> / </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 7 </div>  
+      <div class="button"> 8 </div>  
+      <div class="button"> 9 </div>  
+      <div class="button l"> x </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 4 </div>  
+      <div class="button"> 5 </div>  
+      <div class="button"> 6 </div>  
+      <div class="button l"> ? </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 1 </div>  
+      <div class="button"> 2 </div>  
+      <div class="button"> 3 </div>  
+      <div class="button l"> + </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> . </div>  
+      <div class="button"> 0 </div>  
+      <div class="button">  
+        < </div>  
+          <div class="button l"> = </div>  
+      </div>  
+    </div>  
+    </div>  
+    </div>
     <div class="row clearfix" id="breakfast">
     <div class="row">
         <div class="col-lg-3">

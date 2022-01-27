@@ -3,8 +3,7 @@
     <head>
         <title>Pospoint</title>
         <meta charset="utf-8">
-        <link href="/styles/multiselect.css" rel="stylesheet"/>
-	<script src="multiselect.min.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,185 +13,20 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
-	
-	
-	
-	
-<style>
- html, body {
-                border: 0;
-                padding: 0;
-                margin: 0;
-                height: 100%;
-            }
- body {
-                background: white;
-                font-size: 16px;
-                background-color: #ffffff; 
-                font-family: Arial;
-                font-size: 18px;
-                padding: 0px;
-            }
-             .textarea {
-               width: 70%;
-               height: 150px;
-               padding: 12px 20px;
-               box-sizing: border-box;
-               box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.2);
-               border: 2px solid #ccc;
-               border-radius: 10px;
-               background-color: #fff;
-               resize: none;
-            }
-            .container {
-                align-items: center;
-                background-color: #ffffff;
-                padding: 10px 10px 10px 10px;
-                border-radius: 0px;
-            }
-              .row {
-                display: -ms-flexbox; /* IE10 */
-                display: flex;
-                -ms-flex-wrap: wrap; /* IE10 */
-                flex-wrap: wrap;
-                margin: 0 -16px;
-            }
-              .col-25 {
-                -ms-flex: 25%; /* IE10 */
-                flex: 25%;
-            }
-            .col-10 {
-                -ms-flex: 15%; /* IE10 */
-                flex: 15%;
-            }
-            .col-50 {
-                -ms-flex: 50%; /* IE10 */
-                flex: 50%;
-            }
-             .col-75 {
-                -ms-flex: 75%; /* IE10 */
-                flex: 75%;
-            }
-            .col-25,
-            .col-50,
-            .col-75 {
-                padding: 0 16px;
-            }
-            .table-responsive {
-                border-collapse: collapse;
-                border-spacing: 0;
-                width: 60%;
-                box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.2);
-                font-family: lato;
-                position: relative;
-                color: #333;
-                border-radius: 10px;
-            }
-            .w3-bar{
-                 box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.2);
-                 border-radius: 4px;
-            }
-             .w3-sidebar{
-                 box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.2);
-                 border-radius: 10px;
-                 border: 3px;  
-            }
-             .w3-red{
-                
-               color: #ff3333;
-            }
-            .table-responsive{
-                -sm|-md|-lg|-xl
-            }
-
-            th, td {
-                text-align: left;
-                padding: 10px;
-            }
-            th:first-child, td:first-child {
-                text-align: center;
-            }
-            tr:nth-child(even) {
-                background-color:#ffffff
-            }
-             input[type=text] {
-                width: 30%;
-                margin-bottom: 20px;
-                padding: 12px;
-                border: 3px;
-                border-radius: 1px;
-                background: white;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-                font-family: lato;
-                position: relative;
-                color: #333;
-                border-radius: 7px;
-            }
-            .btn {
-                background-color: red;
-                width: 20%;
-                padding: 12px;
-                height: 50px;
-                font-family: 'Roboto', sans-serif;
-                font-size: 24pxpx;
-                text-transform: uppercase;
-                letter-spacing: 2.5px;
-                font-weight: 500;
-                color: #fff;
-                border: 3px;
-                border-radius: 10px;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease 0s;
-                cursor: pointer;
-                outline: none;
-            }
-            
-                .title{
-
-                    font-weight: 100;
-                    letter-spacing: 2.5px;
-                    padding: 12px;
-                    border-radius: 10px;
-                    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-                    width: 100%;
-                    padding: 5px 15px;
-                    margin-top: 30px;
-                    margin-bottom: 30px;
-                }
-                
-            
-            
-            
-            
-    
-    
-    
-    
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  
 
 <style>  
         * {  
-  box-sizing: border-box;  
+ 
   font-family: 'Roboto', sans-serif;  
 }  
 body {  
   background: black;  
 }  
-.container {  
-  width: 100%;  
-  margin: 20px;  
-  color:black;  
-  margin-bottom: 0%;
-  margin-right:0%;
-}  
+ 
 .calc-body {  
-  width: 275px;  
-  margin: auto;  
-  min-height: 400px;  
+  width: 100%;;   
+  height: 100%;  
   border: solid 1px #3A4655;  
   box-shadow: 0 8px 50px -7px black;  
 }  
@@ -315,7 +149,11 @@ input[type=text] {
   border: 5px solid black;  
   border-radius: 10px;  
 }     
-</style>  
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>  
 </head>
 <body>
     
@@ -329,51 +167,7 @@ input[type=text] {
       
             <span class="w3-bar-item w3-right">Pospoint</span>
         </div>
-        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;">
- 
-        
-
-  <div class="container" >  
-  <div class="calc-body">  
-    <div class="calc-screen">  
-      <div class="calc-operation"> 25 + 10 = </div>  
-      <div class="calc-typed"> 35 <span class="blink-me"> _ </span> </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button c"> C </div>  
-      <div class="button l"> ? </div>  
-      <div class="button l"> % </div>  
-      <div class="button l"> / </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 7 </div>  
-      <div class="button"> 8 </div>  
-      <div class="button"> 9 </div>  
-      <div class="button l"> x </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 4 </div>  
-      <div class="button"> 5 </div>  
-      <div class="button"> 6 </div>  
-      <div class="button l"> ? </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 1 </div>  
-      <div class="button"> 2 </div>  
-      <div class="button"> 3 </div>  
-      <div class="button l"> + </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> . </div>  
-      <div class="button"> 0 </div>  
-      <div class="button">  
-        < </div>  
-          <div class="button l"> = </div>  
-      </div>  
-    </div>  
-  </div>  
- 
-</div>
+      
         <!-- Sidebar/menu -->
         <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:248px;" id="mySidebar"><br>
            
