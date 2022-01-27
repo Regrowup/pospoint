@@ -1,5 +1,6 @@
-<?php 
-session_start(); 
+<?php session_start(); ?>
+
+<?php
 if(!isset($_SESSION['valid'])) {
 	header('Location: /login.php');
 }
@@ -7,7 +8,7 @@ if(!isset($_SESSION['valid'])) {
 
 
           <?php include 'nav.php';?>
-          <style>
+ <style>
      body{
     margin-top:20px;
     background-color: #f4f7f6;
@@ -346,238 +347,238 @@ if(!isset($_SESSION['valid'])) {
     padding: 20px;
     font-weight: 400;
 }
- </style>          
+ </style>     
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-
-<div class="row clearfix" id="breakfast">
-<div class="row">
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+    <div class="row clearfix" id="breakfast">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
- </div> 
- <div class="row" >
- <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+     </div> 
+     <div class="row" >
+     <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>  
+     </div>
+    <div class="row" >
+     <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                    
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>  
- </div>
-<div class="row" >
- <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
+        <div class="col-lg-3">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
+             
+                    </div>
+                    <div class="product_details">
+                    <p><b>Eggs benedinct with salmon</b></p>
+                    <p>$16.00</p>
+                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
                     
-                   
+                        
+                       
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="card product_item">
-            <div class="body">
-                <div class="cp_img">
-                    <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:250px;height:250px;" alt="Product" class="img-fluid">
-         
-                </div>
-                <div class="product_details">
-                <p><b>Eggs benedinct with salmon</b></p>
-                <p>$16.00</p>
-                <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                
-                    
-                   
-                </div>
-            </div>
-        </div>
-    </div>
- </div>   
-
-
+     </div>   
+    
+    
 </div>
-  
 
+
+      
 <?php include 'footer.php';?>
          
     
