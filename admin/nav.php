@@ -327,12 +327,11 @@ input[type=text] {
       
             <span class="w3-bar-item w3-right">Pospoint</span>
         </div>
-        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;">
-  <h3 class="w3-bar-item">Add Amount </h3>
+        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:40%;">
+ 
+         </div>
 
-  <br></br>
-  <hr>
-  <div class="container">  
+  <div class="container w3-bar-block w3-card" style="width:30%;right:0;height:40%;">  
   <div class="calc-body">  
     <div class="calc-screen">  
       <div class="calc-operation"> 25 + 10 = </div>  
