@@ -162,19 +162,7 @@
                     margin-top: 30px;
                     margin-bottom: 30px;
                 }
-                 h1,h2,h3,h4,h5,h6,h7,h8{
-
-                font-weight: 100;
-                letter-spacing: 2.5px;
-                padding: 12px;
-                border-radius: 10px;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-                width: 60%;
-                padding: 5px 15px;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-
+                
             
             
             
@@ -184,6 +172,148 @@
     
     
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  
+
+<style>  
+        * {  
+  box-sizing: border-box;  
+  font-family: 'Roboto', sans-serif;  
+}  
+body {  
+  background: black;  
+}  
+.container {  
+  width: auto;  
+  margin: 20px;  
+  color:black;  
+}  
+.calc-body {  
+  width: 275px;  
+  margin: auto;  
+  min-height: 400px;  
+  border: solid 1px #3A4655;  
+  box-shadow: 0 8px 50px -7px black;  
+}  
+.calc-screen {  
+  background: #3A4655;  
+  width: 100%;  
+  height: 150px;  
+  padding: 20px;  
+}  
+.calc-operation {  
+  text-align: right;  
+  color: #727B86;  
+  font-size: 21px;  
+  padding-bottom: 10px;  
+  border-bottom: dotted 1px;  
+}  
+.calc-typed {  
+  margin-top: 20px;  
+  font-size: 45px;  
+  text-align: right;  
+  color: #fff;  
+}  
+.calc-button-row {  
+  width: 100%;  
+  background: #3C4857;  
+}  
+.button {  
+  width: 25%;  
+  background: #425062;  
+  color: #fff;  
+  padding: 20px;  
+  display: inline-block;  
+  font-size: 25px;  
+  text-align: center;  
+  vertical-align: middle;  
+  margin-right: -4px;  
+  border-right: solid 2px #3C4857;  
+  border-bottom: solid 2px #3C4857;  
+  transition: all 0.2s ease-in-out;  
+}  
+.button.l {  
+  color: #AEB3BA;  
+  background: #404D5E;  
+}  
+.button.c {  
+  color: #D95D4E;  
+  background: #404D5E;  
+}  
+.button:hover {  
+  background: #E0B612;  
+  transform: rotate(5deg);  
+}  
+.button.c:hover {  
+  background: #E0B612;  
+  color: #fff;  
+}  
+.button.l:hover {  
+  background: #E0B612;  
+  color: #fff;  
+}  
+.blink-me {  
+  color: #E0B612;  
+}  
+html {  
+  height: 100vh;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  background-color: #2d3436;  
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);  
+  font-family: 'Cookie', cursive;  
+}  
+.title:hover {  
+  background: #E0B612;  
+  color: #fff;  
+}  
+.title {  
+margin-bottom: 10px;  
+padding: 5px 0;  
+font-size: 40px;  
+font-weight: bold;  
+text-align: center;  
+color: #AEB3BA;  
+font-family: 'Cookie', cursive;  
+}  
+input[type=button] {  
+  width: 60px;  
+  height: 60px;  
+  float: left;  
+  padding: 0;  
+  margin: 5px;  
+  box-sizing: border-box;  
+  background: #ecedef;  
+  border: none;  
+  font-size: 30px;  
+  line-height: 30px;  
+  border-radius: 50%;  
+  font-weight: 700;  
+  color: #5E5858;  
+  cursor: pointer;    
+}  
+input[type=text] {  
+  width: 270px;  
+  height: 60px;  
+  float: left;  
+  padding: 0;  
+  box-sizing: border-box;  
+  border: none;  
+  background: none;  
+  color: red;  
+  text-align: right;  
+  font-weight: 700;  
+  font-size: 60px;  
+  line-height: 60px;  
+  margin: 0 25px;  
+  }  
+.calculator {  
+  background-color: #c0c0c0;  
+  box-shadow: 0px 0px 0px 10px #666;  
+  border: 5px solid black;  
+  border-radius: 10px;  
+}     
+</style>  
 </head>
 <body>
     
@@ -197,11 +327,51 @@
       
             <span class="w3-bar-item w3-right">Pospoint</span>
         </div>
-        <div class="w3-sidebar w3-bar-block w3-card" style="width:20%;right:0;">
+        <div class="w3-sidebar w3-bar-block w3-card" style="width:40%;right:0;">
   <h3 class="w3-bar-item">Add Amount </h3>
-  <h3>Coca Cola</h3>
+
+  <br></br>
+  <hr>
+  <div class="container">  
+  <div class="calc-body">  
+    <div class="calc-screen">  
+      <div class="calc-operation"> 25 + 10 = </div>  
+      <div class="calc-typed"> 35 <span class="blink-me"> _ </span> </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button c"> C </div>  
+      <div class="button l"> ? </div>  
+      <div class="button l"> % </div>  
+      <div class="button l"> / </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 7 </div>  
+      <div class="button"> 8 </div>  
+      <div class="button"> 9 </div>  
+      <div class="button l"> x </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 4 </div>  
+      <div class="button"> 5 </div>  
+      <div class="button"> 6 </div>  
+      <div class="button l"> ? </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> 1 </div>  
+      <div class="button"> 2 </div>  
+      <div class="button"> 3 </div>  
+      <div class="button l"> + </div>  
+    </div>  
+    <div class="calc-button-row">  
+      <div class="button"> . </div>  
+      <div class="button"> 0 </div>  
+      <div class="button">  
+        < </div>  
+          <div class="button l"> = </div>  
+      </div>  
+    </div>  
+  </div>  
  
-   </body>
 </div>
         <!-- Sidebar/menu -->
         <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:248px;" id="mySidebar"><br>
