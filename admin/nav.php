@@ -183,7 +183,7 @@ body {
   background: black;  
 }  
 .container {  
-  width: 30%;  
+  width: 100%;  
   margin: 20px;  
   color:black;  
 }  
@@ -327,9 +327,9 @@ input[type=text] {
       
             <span class="w3-bar-item w3-right">Pospoint</span>
         </div>
-        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:40%;">
+        <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;">
  
-         </div>
+        
 
   <div class="container" >  
   <div class="calc-body">  
