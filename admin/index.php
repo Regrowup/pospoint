@@ -8,7 +8,7 @@ if(!isset($_SESSION['valid'])) {
 <?php include 'nav.php';?>
       
      <!-- Icon Bar (Sidebar - hidden on small screens) -->
-<div class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small">
   <!-- Avatar image in top left corner -->
 
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
@@ -27,7 +27,7 @@ if(!isset($_SESSION['valid'])) {
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
   </a>
-</div>
+</nav>
 <!-- Page Content -->
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
