@@ -183,7 +183,7 @@ body {
   background: black;  
 }  
 .container {  
-  width: auto;  
+  width: 30%;  
   margin: 20px;  
   color:black;  
 }  
@@ -331,7 +331,7 @@ input[type=text] {
  
          </div>
 
-  <div class="container w3-bar-block w3-card" style="width:30%;right:0;height:40%;">  
+  <div class="container" >  
   <div class="calc-body">  
     <div class="calc-screen">  
       <div class="calc-operation"> 25 + 10 = </div>  
