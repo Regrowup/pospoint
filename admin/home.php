@@ -1,651 +1,397 @@
-<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<title>Pospoint</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.17.0/math.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<?php
-if(!isset($_SESSION['valid'])) {
-	header('Location: /login.php');
-}
-?>
 
-
-          <?php include 'nav.php';?>
- <style>
-     body{
-    margin-top:20px;
-    background-color: #f4f7f6;
-}
-.c_review {
-    margin-bottom: 0
-}
-
-.c_review li {
-    margin-bottom: 16px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid #e8e8e8
-}
-
-.c_review li:last-child {
-    margin: 0;
-    border: none
-}
-
-.c_review .avatar {
-    float: left;
-    width: 80px
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
 }
 
-.c_review .comment-action {
-    float: left;
-    width: calc(100% - 80px)
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
 }
 
-.c_review .comment-action .c_name {
-    margin: 0
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
 }
 
-.c_review .comment-action p {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 95%;
-    display: block
+.sidenav a:hover{
+  color: #f1f1f1;
 }
 
-.product_item:hover .cp_img {
-    top: -40px
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
-.product_item:hover .cp_img img {
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22)
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
-.product_item:hover .cp_img .hover {
-    display: block
-}
+</style>
 
-.product_item .cp_img {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    -o-transform: translate(-50%);
-    -khtml-transform: translate(-50%);
-    width: 100%;
-    padding: 15px;
-    transition: all 0.2s ease-in-out
-}
 
-.product_item .cp_img img {
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px
-}
+<body>
 
-.product_item .cp_img .hover {
-    display: none;
-    text-align: center;
-    margin-top: 10px
-}
 
-.product_item .product_details {
-    padding-top: 110%;
-    text-align: center
-}
 
-.product_item .product_details h5 {
-    margin-bottom: 5px
-}
 
-.product_item .product_details h5 a {
-    font-size: 16px;
-    color: #444
-}
-
-.product_item .product_details h5 a:hover {
-    text-decoration: none
-}
-
-.product_item .product_details .product_price {
-    margin: 0
-}
-
-.product_item .product_details .product_price li {
-    display: inline-block;
-    padding: 0 10px
-}
-
-.product_item .product_details .product_price .new_price {
-    font-weight: 600;
-    color: #ff4136
-}
-
-.product_item_list table tr td {
-    vertical-align: middle
-}
-
-.product_item_list table tr td h5 {
-    font-size: 15px;
-    margin: 0
-}
-
-.product_item_list table tr td .btn {
-    box-shadow: none !important
-}
-
-.product-order-list table tr th:last-child {
-    width: 145px
-}
-
-.preview {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column
-}
-
-.preview .preview-pic {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1
-}
-
-.preview .preview-thumbnail.nav-tabs {
-    margin-top: 15px;
-    font-size: 0
-}
-
-.preview .preview-thumbnail.nav-tabs li {
-    width: 20%;
-    display: inline-block
-}
-
-.preview .preview-thumbnail.nav-tabs li nav-link img {
-    max-width: 100%;
-    display: block
-}
-
-.preview .preview-thumbnail.nav-tabs li a {
-    padding: 0;
-    margin: 2px;
-    border-radius: 0 !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important
-}
-
-.preview .preview-thumbnail.nav-tabs li:last-of-type {
-    margin-right: 0
-}
-
-.preview .tab-content {
-    overflow: hidden
-}
-
-.preview .tab-content img {
-    width: 100%;
-    -webkit-animation-name: opacity;
-    animation-name: opacity;
-    -webkit-animation-duration: .3s;
-    animation-duration: .3s
-}
-
-.details {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column
-}
-
-.details .rating .stars {
-    display: inline-block
-}
-
-.details .sizes .size {
-    margin-right: 10px
-}
-
-.details .sizes .size:first-of-type {
-    margin-left: 40px
-}
-
-.details .colors .color {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    height: 2em;
-    width: 2em;
-    border-radius: 2px
-}
-
-.details .colors .color:first-of-type {
-    margin-left: 20px
-}
-
-.details .colors .not-available {
-    text-align: center;
-    line-height: 2em
-}
-
-.details .colors .not-available:before {
-    font-family: Material-Design-Iconic-Font;
-    content: "\f136";
-    color: #fff
-}
-
-@media screen and (max-width: 996px) {
-    .preview {
-        margin-bottom: 20px
-    }
-}
-
-@-webkit-keyframes opacity {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(3);
-        transform: scale(3)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1)
-    }
-}
-
-@keyframes opacity {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(3);
-        transform: scale(3)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1)
-    }
-}
-
-.cart-page .cart-table tr th:last-child {
-    width: 145px
-}
-
-.cart-table .quantity-grp {
-    width: 120px
-}
-
-.cart-table .quantity-grp .input-group {
-    margin-bottom: 0
-}
-
-.cart-table .quantity-grp .input-group-addon {
-    padding: 0 !important;
-    text-align: center;
-    background-color: #1ab1e3
-}
-
-.cart-table .quantity-grp .input-group-addon a {
-    display: block;
-    padding: 8px 10px 10px;
-    color: #fff
-}
-
-.cart-table .quantity-grp .input-group-addon a i {
-    vertical-align: middle
-}
-
-.cart-table .quantity-grp .form-control {
-    background-color: #fff
-}
-
-.cart-table .quantity-grp .form-control+.input-group-addon {
-    background-color: #1ab1e3
-}
-
-.ec-checkout .wizard .content .form-group .btn-group.bootstrap-select.form-control {
-    padding: 0
-}
-
-.ec-checkout .wizard .content .form-group .btn-group.bootstrap-select.form-control .btn-round.btn-simple {
-    padding-top: 12px;
-    padding-bottom: 12px
-}
-
-.ec-checkout .wizard .content ul.card-type {
-    font-size: 0
-}
-
-.ec-checkout .wizard .content ul.card-type li {
-    display: inline-block;
-    margin-right: 10px
-}
-
-.card {
-    background: #fff;
-    margin-bottom: 30px;
-    transition: .5s;
-    border: 0;
-    border-radius: .55rem;
-    position: relative;
-    width: 100%;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
-}
-
-.card .body {
-    font-size: 14px;
-    color: #424242;
-    padding: 20px;
-    font-weight: 400;
-}
- </style>     
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-          <div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:40%;margin-top:1.5%;">
-
-<div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Eggs benedinct with salmon</h4>
-      <p class="card-text">2</p>
-      <p class="card-text">3.00EUR
-
-      </p>
-      
-      <a href="#" class="card-link">X</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Eggs benedinct with salmon</h4>
-      <p class="card-text">2</p>
-      <p class="card-text">3.00EUR
-
-      </p>
-      
-      <a href="#" class="card-link">X</a>
-    </div>
-  </div>
-
-  </div>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
   
-
-<div class="w3-sidebar w3-bar-block w3-card" style="width:30%;right:0;height:60%;margin-top:21%">
-<div class="calc-body">  
-    <div class="calc-screen">  
-      <div class="calc-operation"> 25 + 10 = </div>  
-      <div class="calc-typed"> 35 <span class="blink-me"> _ </span> </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button c"> C </div>  
-      <div class="button l"> ? </div>  
-      <div class="button l"> % </div>  
-      <div class="button l"> / </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 7 </div>  
-      <div class="button"> 8 </div>  
-      <div class="button"> 9 </div>  
-      <div class="button l"> x </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 4 </div>  
-      <div class="button"> 5 </div>  
-      <div class="button"> 6 </div>  
-      <div class="button l"> ? </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> 1 </div>  
-      <div class="button"> 2 </div>  
-      <div class="button"> 3 </div>  
-      <div class="button l"> + </div>  
-    </div>  
-    <div class="calc-button-row">  
-      <div class="button"> . </div>  
-      <div class="button"> 0 </div>  
-      <div class="button">  
-        < </div>  
-          <div class="button l"> = </div>  
-      </div>  
-    </div>  
-    </div>  
-    </div>
-    <div class="row clearfix" id="breakfast">
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div> 
-     <div class="row" >
-     <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>  
-     </div>
-    <div class="row" >
-     <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card product_item">
-                <div class="body">
-                    <div class="cp_img">
-                        <img src="https://tatyanaseverydayfood.com/wp-content/uploads/2017/03/Eggs-Benedict-2.jpg" style="width:200px;height:200px;" alt="Product" class="img-fluid">
-             
-                    </div>
-                    <div class="product_details">
-                    <p><b>Eggs benedinct with salmon</b></p>
-                    <p>$16.00</p>
-                    <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
-                    
-                        
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>   
     
-    
+    <h6 class="w3-bar-item w3-button w3-hide-small w3-hover-white"><?php echo date("Y-m-d h:i:s"); ?></h6>
+    <a href="https://pospoint.be" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">powere by Pospoint Inc</a>
+    <span class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-center">Miss Food</span>
+  </div>
 </div>
 
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Food Categories</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">Breakfast</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">Eat</a>
+   
+  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">Drink</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">Dinner</a>
+  
+</nav>
 
-      
-<?php include 'footer.php';?>
-         
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+    <div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
     
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink"></div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink"></div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">
+        <div class="w3-col s6 tablink"></div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">
+        <div class="w3-col s6 tablink"></div>
+      </a>
+      Our Menu
+    </div>
+    
+    <div id="Dinner" class="w3-container menu w3-padding-64 w3-card">
+      <p><img src="https://th.bing.com/th/id/OIP.ndYB8OMCNVGDtyRb2b2RWwHaHa?pid=ImgDet&rs=1" class="w3-card-4" alt="Menu Image" style="width:20%;height:20%;"></p>
+      <h5>Bread Basdaasdaket</h5>
+      <p><button class="w3-right">+Add</button></p>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p>
+      
+    <hr>
+    <p><img src="https://th.bing.com/th/id/R.e955ec5b228ed28672ab5b920c8a1d8a?rik=GJjurtbpuBjJaQ&pid=ImgRaw&r=0" class="w3-card-4" alt="Menu Image" style="width:20%;height:20%;"></p>
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p><button class="w3-right">+Add</button></p>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+      <hr>
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h5>Blueberry Pancakes</h5>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+    </div>
+    <div id="Breakfast" class="w3-container menu w3-padding-64 w3-card">
+      <h5>Bread Breafast</h5>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+    
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+    
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h5>Blueberry Pancakes</h5>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Bread Basket</h5>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+    
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+    
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h5>Blueberry Pancakes</h5>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Coffee</h5>
+      <p class="w3-text-grey">Regular coffee 2.50</p><br>
+    
+      <h5>Chocolato</h5>
+      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+    
+      <h5>Corretto</h5>
+      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+    
+      <h5>Iced tea</h5>
+      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+    
+      <h5>Soda</h5>
+      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+    </div>  
+   
+  </div>
+</div>
+    </div>
+    <div class="w3-third  w3-right" style="margin-right:0%;">
+    
+      <div class="w3-border w3-padding-large w3-padding-64 w3-center" style="width:350px;height:300px;padding-right:0px;">
+      <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bread</td>
+          <td>2</td>
+          <td>35</td>
+          <td>70</td>
+          
+        </tr>
+        <tr>
+        <td>1</td>
+          <td>Coffee</td>
+          <td>2</td>
+          <td>35</td>
+          <td>70</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="w3-border w3-padding-large w3-padding-64-large" style="width:350px;">
+other
+</div>
+      <div class="w3-border w3-padding-large w3-padding-64-large" style="width:350px;">
+     
+
+        <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        <form>
+            <input readonly id="display1" type="text" class="form-control text-right">
+            <input readonly id="display2" type="text" class="form-control text-right">
+        </form>
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="left-parenthesis" type="button" class="operator-group">&#40;</button>
+            <button id="right-parenthesis" type="button" class="operator-group">&#41;</button>
+            <button id="square-root" type="button" class="operator-group">&#8730;</button>
+            <button id="square" type="button" class="operator-group">&#120;&#178;</button>
+        </div>
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="clear" type="button">&#67;</button>
+            <button id="backspace" type="button">&#9003;</button>
+            <button id="ans" type="button" class="operand-group">&#65;&#110;&#115;</button>
+            <button id="divide" type="button" class="operator-group">&#247;</button>
+        </div>
+
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="seven" type="button" class="operand-group">&#55;</button>
+            <button id="eight" type="button" class="operand-group">&#56;</button>
+            <button id="nine" type="button" class="operand-group">&#57;</button>
+            <button id="multiply" type="button" class="operator-group">&#215;</button>
+        </div>
+
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="four" type="button" class="operand-group">&#52;</button>
+            <button id="five" type="button" class="operand-group">&#53;</button>
+            <button id="six" type="button" class="operand-group">&#54;</button>
+            <button id="subtract" type="button" class="operator-group">&#8722;</button>
+        </div>
+
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="one" type="button" class="operand-group">&#49;</button>
+            <button id="two" type="button" class="operand-group">&#50;</button>
+            <button id="three" type="button" class="operand-group">&#51;</button>
+            <button id="add" type="button" class="operator-group">&#43;</button>
+        </div>
+
+        <div class="d-flex justify-content-between button-row">
+            <button id="percentage" type="button" class="operand-group">&#37;</button>
+            <button id="zero" type="button" class="operand-group">&#48;</button>
+            <button id="decimal" type="button" class="operand-group">&#46;</button>
+            <button id="equal" type="button">&#61;</button>
+        </div>
+
+    </div>
+     
+     
+    </div>
+  </div>
+
+  <!-- Pagination -->
+
+
+  
+
+<!-- END MAIN -->
+</div>
+<hr>
+<br></br>
+<!--
+<div class="w3-center w3-padding-32 w3-bottom">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>-->
+  <script src="js/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
