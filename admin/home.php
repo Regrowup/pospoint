@@ -104,7 +104,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
    
   <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">Drink</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">Dinner</a>
-  
+  <hr>
+  <a class="w3-bar-item w3-button w3-hover-black w3-bottom" href="">Logout</a>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
