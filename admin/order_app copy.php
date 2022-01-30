@@ -88,7 +88,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
     <i class="fa fa-remove"></i>
   </a>
-  <h4 class="w3-bar-item"><b>Food Categories</b></h4>
+
   <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">Breakfast</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">Eat</a>
    

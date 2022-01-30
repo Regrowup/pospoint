@@ -79,7 +79,33 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 </style>
 
+<style>
+.center {
+  
+}
 
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #000;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
 <body>
 
 
@@ -98,30 +124,66 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </div>
 <!-- Sidebar -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <div style="border:1px solid #ccc; boder-radius:5px;text-align:center;">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
     <i class="fa fa-remove"></i>
   </a>
-
-  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">Breakfast</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">Eat</a>
-   
-  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">Drink</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">Dinner</a>
+   <center>
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">FAMILY MENU</h3>
   <hr>
-  <a  href="/logout.php" class="btn">Logout</a>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Eat');">FRIED CHICKEN</h3>
+  <hr>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">BRUGER MENUE</h3>
+  <hr>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">BRUGERS</h3>
+  <hr>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">WOK</h3>
+  <hr>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">FRIETEN</h3>
+</center>
+  </div>
+  <a  class="w3-bar-item w3-button w3-hover-black w3-center" href="/logout.php" class="btn">Logout</a>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main" style="margin-left:12%;max-width:90%;">
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="border:1px solid #ccc;width:60%; height:150px; text-align: center;">
+  <center>
+    
+   <img src=https://th.bing.com/th/id/R.c665b134b6bd00297090cf062bdb1f85?rik=Zos18vzjEAHheQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTable-PNG-Image.png&ehk=TvH%2fDJImHRlqDdlAHeBdBcYDFX1NIkqbgrKmth08D8w%3d&risl=&pid=ImgRaw&r=0" style="width: 150px; height:100Px;"/>
+   <h4>Tables</h4><br>
+</center>
+  </header>
+  
+  <div class="center">
+  <div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a href="#" class="active">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+  </div>
+
+</div>
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
     <div class="w3-container" id="menu">
   <div class="w3-content" style="max-width:2000px;">
-  <div class="w3-row w3-center w3-card w3-padding">
+  <div class="w3-row w3-center ">
       <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
         <div class="w3-col s6 tablink"></div>
       </a>
@@ -134,21 +196,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <a href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">
         <div class="w3-col s6 tablink"></div>
       </a>
-      Our Menu
+      
     </div>
   
       <div class="container" ng-app="shoppingCart" ng-controller="shoppingCartController" ng-init="loadProduct(); fetchCart();">
-
+      
       <div id="Dinner" class="w3-container menu w3-padding-64 w3-card">
-        <h1>Dinner</h1>
+        
 			<form method="post">
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
-						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							<img ng-src="images/{{product.image}}" class="img-responsive" /><br />
+						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; " align="center">
+						
 							<h4 class="text-info">{{product.name}}</h4>
 							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="Add to Cart" ng-click="addtoCart(product)" />
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-primary form-control" value="+" ng-click="addtoCart(product)" />
 						</div>
 					</div>
 				</div>
@@ -160,10 +222,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
 						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							<img ng-src="images/{{product.image}}" class="img-responsive" /><br />
+							
 							<h4 class="text-info">{{product.name}}</h4>
 							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="Add to Cart" ng-click="addtoCart(product)" />
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
 						</div>
 					</div>
 				</div>
@@ -175,25 +237,26 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
 						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							<img ng-src="images/{{product.image}}" class="img-responsive" /><br />
+							<
 							<h4 class="text-info">{{product.name}}</h4>
 							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="Add to Cart" ng-click="addtoCart(product)" />
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
     <div id="Eat" class="w3-container menu w3-padding-64 w3-card">
-    Eat
+    
+    <h1>Eat</h1>
 			<form method="post">
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
 						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							<img ng-src="images/{{product.image}}" class="img-responsive" /><br />
+						
 							<h4 class="text-info">{{product.name}}</h4>
 							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="Add to Cart" ng-click="addtoCart(product)" />
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
 						</div>
 					</div>
 				</div>
