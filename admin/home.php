@@ -623,7 +623,7 @@ Cash Drawers
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">
                             <i class="mdi mdi-grid-large menu-icon"></i>
-                            <span class="menu-title">Order App</span>
+                            <span class="order_app.php">Order App</span>
                         </a>
                     </li>
                 </ul>
