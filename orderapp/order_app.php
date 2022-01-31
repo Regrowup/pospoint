@@ -129,22 +129,20 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <i class="fa fa-remove"></i>
   </a>
    <center>
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">FAMILY MENU</h3>
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">FAMILY MENU</h3>
   <hr>
 
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Eat');">FRIED CHICKEN</h3>
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">FRIED CHICKEN</h3>
   <hr>
 
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">BRUGER MENUE</h3>
+
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">BRUGERS</h3>
   <hr>
 
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">BRUGERS</h3>
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">WOK</h3>
   <hr>
 
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">WOK</h3>
-  <hr>
-
-  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">FRIETEN</h3>
+  <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">FRIETEN</h3>
 </center>
   </div>
   <a  class="w3-bar-item w3-button w3-hover-black w3-center" href="/logout.php" class="btn">Logout</a>
@@ -179,30 +177,39 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 </div>
 
+
+
+
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
     <div class="w3-container" id="menu">
   <div class="w3-content" style="max-width:2000px;">
   <div class="w3-row w3-center ">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');" id="myLink">
         <div class="w3-col s6 tablink"></div>
       </a>
       <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
         <div class="w3-col s6 tablink"></div>
       </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Dinner');">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
         <div class="w3-col s6 tablink"></div>
       </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink"></div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
         <div class="w3-col s6 tablink"></div>
       </a>
       
     </div>
   
-      <div class="container" ng-app="shoppingCart" ng-controller="shoppingCartController" ng-init="loadProduct(); fetchCart();">
       
-      <div id="Dinner" class="w3-container menu w3-padding-64 w3-card">
-        
+
+
+    <div class="container" ng-app="shoppingCart" ng-controller="shoppingCartController" ng-init="loadProduct(); fetchCart();">
+
+      <div id="Drinks" class="w3-container menu w3-padding-64 w3-card">
+      <h1>FAMILY MENU</h1>
 			<form method="post">
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
@@ -216,52 +223,77 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 				</div>
 			</form>
 		</div>
+
     <div id="Drinks" class="w3-container menu w3-padding-64 w3-card">
-    <h1>Drinks</h1>
-			<form method="post">
+    <h1>BRUGERS</h1>
+		<form method="post">
 				<div class="row">
 					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
-						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							
-							<h4 class="text-info">{{product.name}}</h4>
-							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-    <div id="Breakfast" class="w3-container menu w3-padding-64 w3-card">
-    <h1>Breakfast</h1>
-			<form method="post">
-				<div class="row">
-					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
-						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-							<
-							<h4 class="text-info">{{product.name}}</h4>
-							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-    <div id="Eat" class="w3-container menu w3-padding-64 w3-card">
-    
-    <h1>Eat</h1>
-			<form method="post">
-				<div class="row">
-					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
-						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
+						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; " align="center">
 						
 							<h4 class="text-info">{{product.name}}</h4>
 							<h4 class="text-danger">{{product.price}}</h4>
-							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-success form-control" value="+" ng-click="addtoCart(product)" />
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-primary form-control" value="+" ng-click="addtoCart(product)" />
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-64 w3-card">
+    <h1>FRIED CHICKEN</h1>
+		<form method="post">
+				<div class="row">
+					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
+						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; " align="center">
+						
+							<h4 class="text-info">{{product.name}}</h4>
+							<h4 class="text-danger">{{product.price}}</h4>
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-primary form-control" value="+" ng-click="addtoCart(product)" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+    
+
+
+
+
+    <div id="Drinks" class="w3-container menu w3-padding-64 w3-card">
+    <h1>Fried Checkin</h1>
+   
+		<form method="post">
+				<div class="row">
+					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
+						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; " align="center">
+						
+							<h4 class="text-info">{{product.name}}</h4>
+							<h4 class="text-danger">{{product.price}}</h4>
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-primary form-control" value="+" ng-click="addtoCart(product)" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-64 w3-card">
+    <h1>Fried Checkin</h1>
+   
+		<form method="post">
+				<div class="row">
+					<div class="col-md-3" style="margin-top:12px;" ng-repeat = "product in products">
+						<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; " align="center">
+						
+							<h4 class="text-info">{{product.name}}</h4>
+							<h4 class="text-danger">{{product.price}}</h4>
+							<input type="button" name="add_to_cart" style="margin-top:5px;" class="btn btn-primary form-control" value="+" ng-click="addtoCart(product)" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+   
     <div class="table-responsive" id="order_table">
 				<table class="table table-bordered table-striped">
 					<tr>  
@@ -298,12 +330,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     
   </div>
 
-  <!-- Pagination -->
-
-
-  
-
-<!-- END MAIN -->
 </div>
 <hr>
 
