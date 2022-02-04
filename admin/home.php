@@ -621,7 +621,7 @@ Cash Drawers
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pos.php">
+                        <a class="nav-link" href="/orderapp/order_app.php">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">POS System</span>
                         </a>
