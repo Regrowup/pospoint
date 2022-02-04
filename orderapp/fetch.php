@@ -1,9 +1,7 @@
 <?php
-include('./config.php');
+include('connection.php');
 //fetch.php
-//$connect = new PDO("mysql:host=localhost;dbname=pospoint", "root", "root");
 
-$connect = $conn;
 
 $query = "SELECT * FROM tbl_product";
 $statement = $connect->prepare($query);
