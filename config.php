@@ -1,5 +1,4 @@
 <?php
-
 define('DB_SERVER','localhost');
 define('DB_USER','u559678163_pospointdbu');
 define('DB_PASS' ,'!@#123qweasdZXC');

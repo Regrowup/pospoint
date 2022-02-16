@@ -1,225 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Pospoint</title>
-        <meta charset="utf-8">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  
-
-<style>  
-        * {  
- 
-  font-family: 'Roboto', sans-serif;  
-}  
-body {  
-  background: black;  
-}  
- 
-.calc-body {  
-  width: 100%;;   
-  height: 100%;  
-  border: solid 1px #3A4655;  
-  box-shadow: 0 8px 50px -7px black;  
-}  
-.calc-screen {  
-  background: #3A4655;  
-  width: 100%;  
-  height: 150px;  
-  padding: 20px;  
-}  
-.calc-operation {  
-  text-align: right;  
-  color: #727B86;  
-  font-size: 21px;  
-  padding-bottom: 10px;  
-  border-bottom: dotted 1px;  
-}  
-.calc-typed {  
-  margin-top: 20px;  
-  font-size: 45px;  
-  text-align: right;  
-  color: #fff;  
-}  
-.calc-button-row {  
-  width: 100%;  
-  background: #3C4857;  
-}  
-.button {  
-  width: 25%;  
-  background: #425062;  
-  color: #fff;  
-  padding: 20px;  
-  display: inline-block;  
-  font-size: 25px;  
-  text-align: center;  
-  vertical-align: middle;  
-  margin-right: -4px;  
-  border-right: solid 2px #3C4857;  
-  border-bottom: solid 2px #3C4857;  
-  transition: all 0.2s ease-in-out;  
-}  
-.button.l {  
-  color: #AEB3BA;  
-  background: #404D5E;  
-}  
-.button.c {  
-  color: #D95D4E;  
-  background: #404D5E;  
-}  
-.button:hover {  
-  background: #E0B612;  
-  transform: rotate(5deg);  
-}  
-.button.c:hover {  
-  background: #E0B612;  
-  color: #fff;  
-}  
-.button.l:hover {  
-  background: #E0B612;  
-  color: #fff;  
-}  
-.blink-me {  
-  color: #E0B612;  
-}  
-html {  
-  height: 100vh;  
-  display: flex;  
-  align-items: center;  
-  justify-content: center;  
-  background-color: #2d3436;  
-  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);  
-  font-family: 'Cookie', cursive;  
-}  
-.title:hover {  
-  background: #E0B612;  
-  color: #fff;  
-}  
-.title {  
-margin-bottom: 10px;  
-padding: 5px 0;  
-font-size: 40px;  
-font-weight: bold;  
-text-align: center;  
-color: #AEB3BA;  
-font-family: 'Cookie', cursive;  
-}  
-input[type=button] {  
-  width: 60px;  
-  height: 60px;  
-  float: left;  
-  padding: 0;  
-  margin: 5px;  
-  box-sizing: border-box;  
-  background: #ecedef;  
-  border: none;  
-  font-size: 30px;  
-  line-height: 30px;  
-  border-radius: 50%;  
-  font-weight: 700;  
-  color: #5E5858;  
-  cursor: pointer;    
-}  
-input[type=text] {  
-  width: 270px;  
-  height: 60px;  
-  float: left;  
-  padding: 0;  
-  box-sizing: border-box;  
-  border: none;  
-  background: none;  
-  color: red;  
-  text-align: right;  
-  font-weight: 700;  
-  font-size: 60px;  
-  line-height: 60px;  
-  margin: 0 25px;  
-  }  
-.calculator {  
-  background-color: #c0c0c0;  
-  box-shadow: 0px 0px 0px 10px #666;  
-  border: 5px solid black;  
-  border-radius: 10px;  
-}     
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>  
-</head>
-<body>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pospoint</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/feather/feather.css">
+    <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="js/select.dataTables.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="images/favicon.png" />
     
+</head>
 
-   
-      
-        <!-- Top container -->
-        <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-            <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-       
-      
-            <span class="w3-bar-item w3-right">Pospoint</span>
-        </div>
-      
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:248px;" id="mySidebar"><br>
-           
-            <div class="w3-bar-block">
-                <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-                <div class="w3-container w3-row">
-                <a href="/dashboard/home.php" class="w3-bar-item w3-button">Menu</a>
-                <hr>
-                <a href="#breakfast" class="w3-bar-item w3-button w3-padding">Breakfast</a>
-                <hr>
-                
-                <a href="#main" class="w3-bar-item w3-button w3-padding">Main</a>
-                <hr>
-                
-                <a href="#" class="w3-bar-item w3-button w3-padding">Cold Snacks</a>
-               
-                <hr>
-                
-                <a href="#" class="w3-bar-item w3-button w3-padding">Hot Snacks</a>
-               
-                <hr>
-                
-                <a href="#" class="w3-bar-item w3-button w3-padding">Salads</a>
-               
-                <hr>
-                <a href="#" class="w3-bar-item w3-button w3-padding">Pasta</a>
-                
-                <hr>
-                <a href="#" class="w3-bar-item w3-button w3-padding">Seafood</a>
-                <hr>
-                <a href="#" class="w3-bar-item w3-button w3-padding">Drinks</a>
-                
-                <hr>
-            
-                    <a href="#" class="w3-bar-item w3-button">Setting</a> 
-                 <hr>
-              
-                <a href="/logout.php" class="w3-bar-item w3-button">Log Out</a>
+<body>
+    <div class="container-scroller">
+
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+                <div class="me-3">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+                </div>
+                <div>
+                    <a class="navbar-brand brand-logo" href="index.html">
+                       
+                        <img src="pospoint.png" alt="profile"/>
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html">
+                       
+                        <img src="images/logo.svg" alt="logo" />
+                    </a>
                 </div>
             </div>
+            <div class="navbar-menu-wrapper d-flex align-items-top">
+                <ul class="navbar-nav">
+                    <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+                        <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">Pospoint</span></h1>
+                        <h3 class="welcome-sub-text">Your performance summary this week </h3>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown d-none d-lg-block">
+                        <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Settings </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+                            <a class="dropdown-item py-3">
+                                <p class="mb-0 font-weight-medium float-left">Settings</p>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                                    <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                                    <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                                    <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                                    <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+                            <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+                            </span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <form class="search-form" action="#">
+                            <i class="icon-search"></i>
+                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                            <i class="icon-mail icon-lg"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+                            <a class="dropdown-item py-3 border-bottom">
+                                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                                <span class="badge badge-pill badge-primary float-right">View all</span>
+                            </a>
+                            <a class="dropdown-item preview-item py-3">
+                                <div class="preview-thumbnail">
+                                    <i class="mdi mdi-alert m-auto text-primary"></i>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                                    <p class="fw-light small-text mb-0"> Just now </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item py-3">
+                                <div class="preview-thumbnail">
+                                    <i class="mdi mdi-settings m-auto text-primary"></i>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                                    <p class="fw-light small-text mb-0"> Private message </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item py-3">
+                                <div class="preview-thumbnail">
+                                    <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                                    <p class="fw-light small-text mb-0"> 2 days ago </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-bell"></i>
+                            <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+                            <a class="dropdown-item py-3">
+                                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                                <span class="badge badge-pill badge-primary float-right">View all</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                                </div>
+                                <div class="preview-item-content flex-grow py-2">
+                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                                    <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                            <div class="dropdown-header text-center">
+                                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                            </div>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+            </div>
         </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                        <div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                        <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="right-sidebar" class="settings-panel">
+                <i class="settings-close ti-close"></i>
+                <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="setting-content">
+                    <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+                        <div class="add-items d-flex px-3 mb-0">
+                            <form class="form w-100">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                                    <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="list-wrapper px-3">
+                            <ul class="d-flex flex-column-reverse todo-list">
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                                    </div>
+                                    <i class="remove ti-close"></i>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                                    </div>
+                                    <i class="remove ti-close"></i>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                                    </div>
+                                    <i class="remove ti-close"></i>
+                                </li>
+                                <li class="completed">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                                    </div>
+                                    <i class="remove ti-close"></i>
+                                </li>
+                                <li class="completed">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                                    </div>
+                                    <i class="remove ti-close"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+                        <div class="events pt-4 px-3">
+                            <div class="wrapper d-flex mb-2">
+                                <i class="ti-control-record text-primary me-2"></i>
+                                <span>Feb 11 2018</span>
+                            </div>
+                            <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+                            <p class="text-gray mb-0">The total number of sessions</p>
+                        </div>
+                        <div class="events pt-4 px-3">
+                            <div class="wrapper d-flex mb-2">
+                                <i class="ti-control-record text-primary me-2"></i>
+                                <span>Feb 7 2018</span>
+                            </div>
+                            <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+                            <p class="text-gray mb-0 ">Call Sarah Graves</p>
+                        </div>
+                    </div>
+                    <!-- To do section tab ends -->
+                    <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+                        <div class="d-flex align-items-center justify-content-between border-bottom">
+                            <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+                            <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+                        </div>
+                        <ul class="chat-list">
+                            <li class="list active">
+                                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                                <div class="info">
+                                    <p>Thomas Douglas</p>
+                                    <p>Available</p>
+                                </div>
+                                <small class="text-muted my-auto">19 min</small>
+                            </li>
+                            <li class="list">
+                                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                                <div class="info">
+                                    <div class="wrapper d-flex">
+                                        <p>Catherine</p>
+                                    </div>
+                                    <p>Away</p>
+                                </div>
+                                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                                <small class="text-muted my-auto">23 min</small>
+                            </li>
+                            <li class="list">
+                                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                                <div class="info">
+                                    <p>Daniel Russell</p>
+                                    <p>Available</p>
+                                </div>
+                                <small class="text-muted my-auto">14 min</small>
+                            </li>
+                            <li class="list">
+                                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                                <div class="info">
+                                    <p>James Richardson</p>
+                                    <p>Away</p>
+                                </div>
+                                <small class="text-muted my-auto">2 min</small>
+                            </li>
+                            <li class="list">
+                                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                                <div class="info">
+                                    <p>Madeline Kennedy</p>
+                                    <p>Available</p>
+                                </div>
+                                <small class="text-muted my-auto">5 min</small>
+                            </li>
+                            <li class="list">
+                                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                                <div class="info">
+                                    <p>Sarah Graves</p>
+                                    <p>Available</p>
+                                </div>
+                                <small class="text-muted my-auto">47 min</small>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- chat tab ends -->
+                </div>
+            </div>
+         
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php">
+                            <i class="mdi mdi-arrange-send-backward"></i>
+                            <span class="menu-title">Products</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Reports </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                       
+                     
+
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Receipts</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Labour Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Hour Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Day Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Week Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Month Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Product Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Category Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> User Reports</a></li>
+
+                                <li class="nav-item"> <a class="nav-link" href="#">Revenue Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Ingredient Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Month Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Shift Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#""> Summary Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Advanced Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">  Export data</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Users </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        
 
 
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Users</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Users</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">User Groups</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                  <!--
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Products </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        
 
 
-        
-        <!-- !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:320px;margin-top:43px;">
-      
-          
-            
-            
-            
+
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="/admin/menus/">Menus</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Modifiers</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Timed Events</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Ingredients</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Month Reports</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Products</a></li>
+                             
+                            </ul>
+                        </div>
+                    </li>-->
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">Floors</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Devices </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Device</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Restaurant App Settings</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    
+                    
+                                            
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Printing </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Printers</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Printer Templates</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Cash Drawers</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                  
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Payments </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Payment Types</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Payment Processors</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Gift Cards</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Gift Card Transactions</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                   
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Settings </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Company Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Report Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Print Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Gift Card Transactions</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">App Settings/a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Manager Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Menu Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">CFD App Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">
+                                    Invoice Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">
+                                    Loyalty Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Stock Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">FDM Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Notification Settings</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">Support </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                       
+
+
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="#">Support Dashboard</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Account Validation</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orderapp/order_app.php">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">POS System</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>

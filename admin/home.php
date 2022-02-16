@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
+    
 </head>
 
 <body>
@@ -374,18 +375,7 @@
                     <!-- chat tab ends -->
                 </div>
             </div>
-            <!-- partial -->
-            <!-- partial:partials/_sidebar.html 
-            Reports
-Products
-Floors
-Devices
-Printing
-Payments
-Settings
-Support
-Tasks
-            -->
+         
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
@@ -394,7 +384,12 @@ Tasks
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php">
+                            <i class="mdi mdi-arrange-send-backward"></i>
+                            <span class="menu-title">Products</span>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="menu-icon mdi mdi-floor-plan"></i>
@@ -444,39 +439,7 @@ Tasks
                             </ul>
                         </div>
                     </li>
-                     <!--
-                        Receipts
-                        Labour Reports
-                        Hour Reports
-                        Day Reports
-                        Week Reports
-                        Month Reports
-                        Product Reports
-                        Category Reports
-                        User Reports
-                        Revenue Reports
-                        Ingredient Reports
-                        Shift Reports
-                        Summary Reports
-                        Advanced Reports
-                        Export data
-
-                        Products
-Menus
-Modifiers
-Timed Events
-Categories
-Ingredients
-Products
-Drinks3
-Starters2
-Mains3
-Discounts
-
-Printers
-Printer Templates
-Cash Drawers
-                        -->
+                  <!--
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="menu-icon mdi mdi-floor-plan"></i>
@@ -489,7 +452,7 @@ Cash Drawers
 
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Menus</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/admin/menus/">Menus</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="#"> Modifiers</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="#">Timed Events</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="#">Categories</a></li>
@@ -499,7 +462,7 @@ Cash Drawers
                              
                             </ul>
                         </div>
-                    </li>
+                    </li>-->
                   
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">

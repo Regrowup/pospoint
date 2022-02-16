@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title></title>
+<title>Pospoint</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -50,14 +50,14 @@ footer {
 </div>
 
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:0px">    
+<div class="w3-container">    
   <!-- The Grid -->
   <div class="w3-row w3-left">
     <!-- Left Column -->
-    <div class="w3-col m3">
+    <div class="w3-col ">
       <!-- Profile -->
-      <div class="w3-card w3-round w3-white">
-        <div class="w3-container">
+      <div class="w3-card  w3-white">
+       
       
          <h1 class="w3-center" ><?php echo date("h:i"); ?></h1>
         
@@ -77,7 +77,11 @@ footer {
 
   <h3 class="w3-bar-item w3-button w3-hover-black w3-center" href="javascript:void(0)" onclick="openMenu(event, 'FRIETEN');">FRIETEN</h3>
   <hr>
-  
+  <div class="w3-container">
+        <h3  class="w3-bar-item w3-button w3-hover-black w3-center" href="/logout.php" class="btn">Logout</h3>
+        <hr>
+        <p>Admin</p>
+        <p>Pospoint </p>
         
         </div>
       </div>
@@ -89,11 +93,7 @@ footer {
       
       <!-- Interests --> 
       <div class="w3-card w3-round w3-white w3-hide-small">
-        <div class="w3-container">
-        <h3  class="w3-bar-item w3-button w3-hover-black w3-center" href="/logout.php" class="btn">Logout</h3>
-        <hr>
-        <p>Admin</p>
-        <p>Pospoint </p>
+        
         </div>
       </div>
       <br>

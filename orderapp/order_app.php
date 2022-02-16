@@ -1,146 +1,446 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+<title>Pospoint</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Pospoint</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+<style>
+    .left-side-menu{
+        
+        background: #fff;
+        color: #000;
+        width: 15%;
+        height: 70%;
+        position: fixed;
+        display: block;
+   
+        padding-left: 0%;
+        text-align: center;
+        margin: 0;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+    }
+  
+    .side-menu{
+        
+        background: #fff;
+        color: #fff;
+        width: 15%;
+        height: 15%;
+       
+      
+        padding-left: 0%;
+        margin: 0;
+        bottom: 0%;
+       text-align: center;
+    
+    position:absolute;
+    border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+    
+    }
+    .main-menu{
+        
+        background: #fff;
+        color: #fff;
+        margin-left: 20%;
+        width: 80%;
+        height: 100%;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+        position: fixed;
+        display: block;
+      
+      
+    }
+    .food-menu{
+        background: #fff;
+        color: #000;
+        overflow-y: auto;
+        text-align: center;
+      
+        margin-right: 20%;
+        margin-top: 10%;
+        width: 80%;
+        height: 80%;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+        
+    position:absolute;
+        display: block;
+    }
+    .table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 1px;
+}
+
+
+
+    .tables-menu{
+        background: #fff;
+        color: #fff;
+      
+        margin-right: 20%;
+
+        width: 80%;
+        height: 15%;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+        
+    position:absolute;
+        display: block;
+    }
+    .left-menu-table{
+        overflow-y: auto;
+        text-align: center;
+        width: 100%;
+        height: 80%;
+        color: #000;
+
+    }
+    .foods-menu-table{
+        overflow-y: auto;
+        text-align: center;
+        width: 100%;
+        height: 60%;
+        color: #000;
+
+    }
+    .calculate-table{
+        overflow-y: auto;
+        text-align: center;
+        width: 100%;
+        height: 80%;
+        color: #000;
+
+    }
+
+   .right-cal{
+       background-color: #fff;
+         width: 15%;
+            height: 100%;
+       
+              float: right;
+              padding-top: 0%;
+              margin-top: 0%;
+              margin-right:2%;
+              border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+      
+   }
+   
+   .bottom-menu{
+    background-color: #fff;
+    width: 80%;
+    height: 5%;
+    bottom: 0%;
+    margin-right:20%;
+    text-align: center;
+    
+    position:absolute;
+    border-radius: 5px;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 5px #000;
+
+   
+   }
+   ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.button {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.button:hover {
+  background-color: #ff0;
+}
+.foods{
+    background-color: #fff;
+    width: 10%;
+    height: 10%;
+    margin-left: 10%;
+    margin-top: 10%;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    box-shadow: 0px 0px 5px #000;
+    position: absolute;
+    display: block;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <main>
-            <div class="content d-flex gap-2 p-2">
-                <!-- Left Sidebar -->
-                <div class=" left-sidebar  d-flex flex-column gap-2 ">
-                    <div class="clock btn-effect  p-2">
-                        <span>23:45</span>
-                    </div>
-                    <div class="menus text-center">
-                        <ul class=" p-2 list-unstyled">
-                            <li class="menu  mx-4 p-2 "><a href="#" class="link-light">Family Menu</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="active">Fried Chicken</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Burger Menu</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Burgers</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Wok</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Frieten</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Frietsauzen</a></li>
-                            <li class="menu mx-4 p-2 border-top "><a href="#" class="link-light ">Salades</a></li>
-                        </ul>
-                    </div>
-                    <div class="menu-nav d-flex justify-content-around">
-                        <button class=" btn-effect btn-primary p-1"><span class="bi-caret-up-fill"></span></button>
-                        <button class=" btn-effect btn-primary p-1"><span class="bi-caret-down-fill"></span></button>
-                    </div>
-                    <div class="user d-flex flex-column flex-grow-1 justify-content-center align-items-center mx-4 py-3 text-light border-bottom">
-                        <span class="user-name">Admin</span>
-                        <form action="#"><button class="btn btn-sm text-light" type="submit">Logout</button></form>
-                    </div>
-                    <div class="brand d-flex flex-column align-items-center flex-grow-1 justify-content-center text-light">
-                        <div class="brand-name text-dark">Management</div>
-                        <div class="brand-logo text-secondary">@CloutPOS</div>
-                    </div>
-                </div>
-                <!-- Middle content -->
-                <div class="d-flex flex-column flex-grow-1  gap-2">
-                    <!-- Tables -->
-                    <div class="table-menu btn-effect p-2 text-center text-light">
-                        <span>Tables</span>
-                    </div>
-                    <!-- Table Nav -->
-                    <ul class="pagination justify-content-between align-items-center mb-0">
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">Previous</a></li>
-                        <li class="active"><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">1</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">2</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">3</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">4</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">5</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">6</a></li>
-                        <li class=""><a class="btn-effect text-light d-inline-block px-4 py-1" href="#">Next</a></li>
-                    </ul>
-                    <!-- Menus items -->
-                    <div class="d-flex flex-column gap-5 flex-grow-1">
-                        <!-- Items in gategory 1 -->
-                        <div class="d-flex justify-content-start gap-1">
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-1">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-1">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-1">test</a>
-                        </div>
-                        <!-- Items in gategory 2 -->
-                        <div class="d-flex justify-content-start flex-wrap">
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-2">test</a>
-                        </div>
-                        <!-- Items in category 3 -->
-                        <div class="d-flex justify-content-start gap-1">
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-3">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-3">test</a>
-                            <a href="#" class="menu-item item-btn btn-effect btn-bg-3">test</a>
-                        </div>
+<div class="left-side-menu">
+<h2><?php echo date("h:i"); ?></h2>
+    
+<ul class="left-menu-table">
+    
+  <li><b>Menu</b></li>
+  <hr>
 
-                    </div>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "pospoint";
 
-                    <div class="actions d-flex justify-content-between ">
-                        <a href="#" class="action-btn btn-effect ">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                        <a href="#" class="action-btn btn-effect">test</a>
-                    </div>
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 
-                </div>
-                <!-- Right Sidebar -->
-                <div class=" right-sidebar d-flex flex-column gap-2">
-                    <div class="bucket bg-light px-2 pt-3 position-relative">
-                        <div class="bucket-item d-flex justify-content-between">
-                            <span class="item-name">1xStrips 2 Stuks</span>
-                            <span class="item-price">$ 2,00</span>
+$sql = "SELECT DISTINCT main_menu FROM products";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+    $m= $row['main_menu'];
+    echo '<li><a href="/orderapp/order_app.php?m='.$row['main_menu'].'">'.$row['main_menu'].'</a></li>';
+  }
+} 
+
+mysqli_close($conn);
+?>
+</ul>
+           
+
+
+</table>
+    
+</div>
+<div class="side-menu">
+<ul class="left-menu-table">
+
+  <li><b>Admin</b></li>
+ 
+  <hr>
+ 
+  
+  <li><a href="#about">Logout</a></li>
+<hr>
+<label>Pospoint</label>
+</ul>
+       
+    
+</div>
+
+<div class="main-menu">
+<div ng-app="shoppingCart" ng-controller="shoppingCartController" ng-init="loadProduct(); fetchCart();">
+<div class="tables-menu">
+
+                        <div class="center">
+                        <img src=https://th.bing.com/th/id/R.c665b134b6bd00297090cf062bdb1f85?rik=Zos18vzjEAHheQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTable-PNG-Image.png&ehk=TvH%2fDJImHRlqDdlAHeBdBcYDFX1NIkqbgrKmth08D8w%3d&risl=&pid=ImgRaw&r=0"
+                                style="width: 150px; height:90px;text-align:center;" /><br>
+                            <div class="pagination">
+                                <a href="#">&laquo;</a>
+                                <a href="#">1</a>
+                                <a href="#" class="active">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">&raquo;</a>
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-around position-absolute w-100" style="bottom: 10px; left: 0">
-                            <span class="bi-caret-up-fill"></span>
-                            <span>Remove</span>
-                            <span>Clear</span>
-                            <span class="bi-caret-up-fill"></span>
-                        </div>
-                    </div>
-                    <div class="total text-light mx-3 ">
-                        <span class="fs-5 ">Total: $ 5,00</span>
-                    </div>
-                    <div class="d-flex gap-2 text-light">
-                        <div class="btn-effect p-2 w-75">Different Pay</div>
-                        <div class="btn-effect p-2 w-25">$</div>
-                    </div>
-                    <div class="numbers d-flex flex-wrap px-4 gap-2">
-                        <div class="num-btn btn-effect rounded-circle">c</div>
-                        <div class="num-btn btn-effect rounded-circle">7</div>
-                        <div class="num-btn btn-effect rounded-circle">8</div>
-                        <div class="num-btn btn-effect rounded-circle">9</div>
-                        <div class="num-btn btn-effect rounded-circle">,</div>
-                        <div class="num-btn btn-effect rounded-circle">4</div>
-                        <div class="num-btn btn-effect rounded-circle">5</div>
-                        <div class="num-btn btn-effect rounded-circle">6</div>
-                        <div class="num-btn btn-effect rounded-circle">0</div>
-                        <div class="num-btn btn-effect rounded-circle">1</div>
-                        <div class="num-btn btn-effect rounded-circle">2</div>
-                        <div class="num-btn btn-effect rounded-circle">3</div>
-                    </div>
-                </div>
+</div>
+<div class="food-menu">
 
-            </div>
-        </main>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                        
+                            <h1>BRUGERS</h1>
+                            <form method="post">
+                            
+                                    <div class="foods-menu-table"  ng-repeat="product in products">
+                                   
+
+                                            <h4 >{{product.name}}</h4>
+                                            <h4 >{{product.price}}</h4>
+                                            <input type="button" name="add_to_cart" class="button" value="+" ng-click="addtoCart(product)" />
+                                    </div>   
+                            </form>
+</div>
+
+<div class="right-cal">
+<table class="calculate-table">
+    <thead class="">
+      <tr>
+       
+
+        <th >Product</th>
+         <th >Qty</th>
+         <th >Price</th>
+         <th >Total</th>
+         <th >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cart in carts">
+                                <td>{{cart.product_name}}</td>
+                                <td>{{cart.product_quantity}}</td>
+                                <td>{{cart.product_price}}</td>
+                                <td>{{cart.product_quantity * cart.product_price}}</td>
+                                <td><button type="button" name="remove_product" class="btn btn-danger btn-xs"
+                                        ng-click="removeItem(cart.product_id)">X</button></td>
+                            </tr>
+    </tbody> 
+    <tfoot style="height:100px;text-align: center;overflow-y:auto">
+
+<tr>
+    <td>Total</td>
+    <td>{{ setTotals() }}</td>
+    
+        
+    
+</tr>
+</tfoot>
+  </table>
+                 
+</div>
+
+<div class="bottom-menu">
+
+ <button class="button">Cash Drawer</button>
+ <button class="button">Customers</button>
+ <button class="button">History</button>
+ <button class="button">Subtotal</button>
+ <button class="button">Take Out</button>
+ <button class="button">PLU</button>
+ <button class="button">More...</button>
+
+</div>
+</div>
+</div>
+
+<script>
+    var app = angular.module('shoppingCart', []);
+
+    app.controller('shoppingCartController', function($scope, $http) {
+      <?php   //$id=$_GET['id']; ?>
+        $scope.loadProduct = function() {
+            $http.get('fetch.php?m=<?php  echo $_GET['m']; ?>').success(function(data) {
+                $scope.products = data;
+            })
+        };
+
+        $scope.carts = [];
+
+        $scope.fetchCart = function() {
+            $http.get('fetch_cart.php').success(function(data) {
+                $scope.carts = data;
+            })
+        };
+
+        $scope.setTotals = function() {
+            var total = 0;
+            for (var count = 0; count < $scope.carts.length; count++) {
+                var item = $scope.carts[count];
+                total = total + (item.product_quantity * item.product_price);
+            }
+            return total;
+        };
+
+        $scope.addtoCart = function(product) {
+            $http({
+                method: "POST",
+                url: "add_item.php",
+                data: product
+            }).success(function(data) {
+                $scope.fetchCart();
+            });
+        };
+
+        $scope.removeItem = function(id) {
+            $http({
+                method: "POST",
+                url: "remove_item.php",
+                data: id
+            }).success(function(data) {
+                $scope.fetchCart();
+            });
+        };
+
+    });
+    </script>
+
+   
+
+
 
 </body>
-
 </html>
