@@ -1,175 +1,193 @@
+
 <?php
-include('config.php');
 
-if(isset($_POST['signup'])) {
-    
+include('rms.php');
 
+$object = new rms();
 
-  $name = $_POST['name'];
-	$username = $_POST['username'];
-  $email = $_POST['email'];
-	$phone = $_POST['phone'];
-	$pass = $_POST['password'];
-	
-	
-$sql="INSERT INTO crm_user(name,username,email,phone,password) VALUES('$name','$username','$email','$phone','$pass')";
-			
-	if (mysqli_query($conn, $sql)) {
-    
-                
-		$reg="<center>Registration successfully,And Your Account Username and Passord Was Sent To Your Email!</center>";
-		echo "<br/>";
-		//header('Location:url=/spages/login.php');
-		//header("Locaurl=login.php");
-		header("Location: /login.php");
-		function sanitize_my_email($field) {
-    $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-    if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
-        return false;
+if($object->Is_set_up_done())
+{
+    if($object->is_login())
+    {
+        header("location:".$object->base_url."dashboard.php");
     }
-   }
-   $name = $_POST['name'];
-	$username = $_POST['username'];
-	$phone = $_POST['phone'];
-	$pass = $_POST['password'];
-	
-$to_email = $_POST['username'];
-$subject = "RGU AI-CRM System, Member Registeration Details";
-$message = "This Is your Username: ".$username." and This Is Your Password: ".$pass;
-$headers = "From: system@regrowup.com";
-//check if the email address is invalid $secure_check
-$secure_check = sanitize_my_email($to_email);
-if ($secure_check == false) {
-    echo "";
-} else { //send email 
-    mail($to_email, $subject, $message, $headers);
-    
+    else
+    {
+        header("location:".$object->base_url."index.php");
+    }
 }
 
-
-
-		
-	
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    echo "Not Registered, Try Again Now";
-    //header('Location:url=/spages/signup.php');
-}
-
-mysqli_close($conn);
-	
-}
-       
 ?>
 
-<?php include ("header.php");?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
-}
 
-* {
-  box-sizing: border-box;
-}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 5%;
-  border: 1px solid #f1f1f1;
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px #f1f1f1;
-}
+    <title>Restaurant Management System using PHP - Register</title>
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="vendor/parsley/parsley.css"/>
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #000;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
 </head>
-<body>
 
-<form action="" method="POST">
-  <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+<body class="bg-gradient-primary">
 
-    <input type="text" placeholder="Full Name" name="name" required />
+    <div class="container">
 
-      <input name="username" type="text" value="" placeholder="Username" required />
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-      <input name="email" type="text" value="" placeholder="Email" required />
+            <div class="col-xl-9 col-lg-9 col-md-9">
 
-      <input name="phone" type="text" value="" placeholder="Mobile" required />
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <form method="post" id="register_form">
+                            <div class="p-5">
+                                <span id="message"></span>
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Set up Account</h1>
+                                </div>
 
-      <input type="password" placeholder="Password" name="password" required/>
-     
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Restaurant Name</label>
+                                            <input type="text" name="restaurant_name" id="restaurant_name" class="form-control" required data-parsley-maxlength="175" data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Restaurant Address</label>
+                                            <input type="text" name="restaurant_address" id="restaurant_address" class="form-control" required data-parsley-maxlength="250" data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Restaurant Contact No.</label>
+                                            <input type="text" name="restaurant_contact_no" id="restaurant_contact_no" class="form-control" required data-parsley-type="integer" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Restaurant Tag Line</label>
+                                            <input type="text" name="restaurant_tag_line" id="restaurant_tag_line" class="form-control" required data-parsley-maxlength="200" data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Currency</label>
+                                            <?php 
+                                            echo $object->Currency_list();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Timezone</label>
+                                            <?php 
+                                            echo $object->Timezone_list();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="text" name="user_email" id="user_email" class="form-control" required data-parsley-type="email" data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" name="user_password" id="user_password" class="form-control" required data-parsley-trigger="keyup" />
+                                        </div>
+                                    </div>
 
-    <button type="submit" name="signup" class="registerbtn">Register</button>
-    <div class="">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div>
-  </div>
-  
- 
-</form>
+                                    <div class="col-md-12" align="center">
+                                        <div class="form-group">
+                                            <br />
+                                            <button type="submit" name="register_button" id="register_button" class="btn btn-primary btn-user">Set Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script type="text/javascript" src="vendor/parsley/dist/parsley.min.js"></script>
 
 </body>
+
 </html>
+
+<script>
+
+$(document).ready(function(){
+
+    $('#register_form').parsley();
+
+    $('#register_form').on('submit', function(event){
+        event.preventDefault();
+        if($('#register_form').parsley().isValid())
+        {       
+            $.ajax({
+                url:"register_action.php",
+                method:"POST",
+                data:$(this).serialize(),
+                dataType:'json',
+                beforeSend:function()
+                {
+                    $('#register_button').attr('disabled', 'disabled');
+                    $('#register_button').val('wait...');
+                },
+                success:function(data)
+                {
+                    $('#register_button').attr('disabled', false);
+                    if(data.error != '')
+                    {
+                        $('#message').html(data.error);
+                    }
+                    else
+                    {
+                        window.location.href="<?php echo $object->base_url; ?>";
+                    }
+                }
+            })
+        }
+    });
+
+});
+
+</script>

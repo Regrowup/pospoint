@@ -1,274 +1,152 @@
+
 <?php
-session_start();
 
-include('config.php');
+include('rms.php');
 
-if(isset($_COOKIE['rememberme'])){
-    //$conn=connectDB();
-    // Decrypt cookie variable value
-    $userid = decryptCookie($_COOKIE['rememberme']);
-    
-    //$sql_query = "select count(*) as cntUser,id from login where id='".$userid."'";
-        $sql_query = "select * from crm_user where id='".$userid."'";
-        $result = mysqli_query($conn,$sql_query);
-        $num = mysqli_fetch_array($result);
+$object = new rms();
 
-        //$count = $num['cntUser'];
-
-        if($num > 0){
-             $userid = $num['id'];
-            if( isset($_POST['rememberme']) ){
-
-                // Set cookie variables
-                $days = 30;
-                $value = encryptCookie($userid);
-                setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000),"/");
-            }
-            
-            $$userid= $num['id'];
-        $_SESSION['id'] = $userid; 
-       
-        $_SESSION['valid'] = $num['id'];
-		
-		$_SESSION['email'] = $num['email'];		
-        $_SESSION['name'] = $num['name'];
-	
-		$_SESSION['mobile'] = $num['mobile'];
-           
-           
-            
-        //users log
-       
-        $extra="home.php";
-        
-       
-    
-        header("location: /admin/$extra");    
-             
-            
-         exit; 
-    }else{
-        
-        echo "Error: " . $sql_query. "<br>" . mysqli_error($mysqli);
-        $_SESSION['msg']="Invalid username or password";
-        $extra="login.php";
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-        $msg="Username or Password Invalid";
-        
-    }
+if(!$object->Is_set_up_done())
+{
+    header("location:".$object->base_url."register.php");
 }
 
-// Encrypt cookie
-function encryptCookie( $value ) {
-
-   $key = hex2bin(openssl_random_pseudo_bytes(4));
-
-   $cipher = "aes-256-cbc";
-   $ivlen = openssl_cipher_iv_length($cipher);
-   $iv = openssl_random_pseudo_bytes($ivlen);
-
-   $ciphertext = openssl_encrypt($value, $cipher, $key, 0, $iv);
-
-   return( base64_encode($ciphertext . '::' . $iv. '::' .$key) );
-}
-
-// Decrypt cookie
-function decryptCookie( $ciphertext ) {
-
-   $cipher = "aes-256-cbc";
-
-   list($encrypted_data, $iv,$key) = explode('::', base64_decode($ciphertext));
-   return openssl_decrypt($encrypted_data, $cipher, $key, 0, $iv);
-
+if($object->is_login())
+{
+    header("location:".$object->base_url."dashboard.php");
 }
 
 
-// On submit
-if(isset($_POST['login'])){
-    
-    $uname = mysqli_real_escape_string($conn,$_POST['email']);
-    $password = mysqli_real_escape_string($conn,$_POST['password']);
-    
-    if ($uname != "" && $password != ""){
-
-        $sql_query = "select * from crm_user where email='".$uname."' and password='".$password."'";
-        $result = mysqli_query($conn,$sql_query);
-        $num = mysqli_fetch_array($result);
-
-        //$count = $num['cntUser'];
-
-        if($num > 0){
-             $userid = $num['id'];
-            if(isset($_POST['rememberme']) ){
-
-                // Set cookie variables
-                $days = 30;
-                $value = encryptCookie($userid);
-                setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000),"/");
-            }
-            
-            
-        $userid = $_SESSION['id'] ;
-        $_SESSION['id'] = $num['id'];
-        $_SESSION['valid'] = $num['id'];
-		//$_SESSION['company_name'] = $num['company_name'];
-	
-	//	$_SESSION['image'] = $num['image'];
-		$_SESSION['email'] = $num['email'];		
-		//$_SESSION['address'] = $num['address'];
-		$_SESSION['mobile'] = $num['mobile'];
-        $_SESSION['name'] = $num['name'];
-           
-           
-            
-        //users log
-        $uip=$_SERVER['REMOTE_ADDR']; // get the user ip
-        $action="Login";
-        mysqli_query($conn,"insert into userlog(userid,email,action,userIP) values('".$_SESSION['id']."','".$_SESSION['valid']."','$action','$uip')");
-        
-        
-        //Redirect to the home page
-        $extra="home.php";
-        $home="";
-        $host=$_SERVER['HTTP_HOST'];
-        $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-    
-        
-        
-        header("location: /admin/$extra");    
-            
-         exit;    
-            
-        }else{
-        echo "Error: " .$sql_query . "<br>" . mysqli_error($conn);
-        $_SESSION['msg']="Invalid username or password";
-        $extra="login.php";
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-        $msg="Username or Password Invalid";
-        }
-
-    }
-
-}
 
 ?>
-<?php include ("header.php");?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
-}
 
-* {
-  box-sizing: border-box;
-}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 5%;
-  border: 1px solid #f1f1f1;
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px #f1f1f1;
-}
+    <title>Pospoint</title>
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="vendor/parsley/parsley.css"/>
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.loginbtn {
-  background-color: #000;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-.cancelbtn {
-  background-color: #f44336;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
 </head>
-<body>
 
-<form action="" method="POST">
-  <div class="container">
-  <h3>Admin Sign In</h3>
-    <hr>
+<body class="bg-gradient-primary">
 
-    <input name="email" type="text" value="" placeholder="Email..." required />
+    <div class="container">
 
-     <input type="password" placeholder="Password" name="password" required>
-     <select class="form-control" name="role">
-       <option  required>Select Role</option>
-       <option value="Admin">Admin</option>
-       <option value="Empolyee">Empolyee</option>
-     </select>
-     
-     <div class="clearfix">
-     <button type="" class="cancelbtn"> Cancel</button>
-       <button type="submit" name="login" class="loginbtn">Sign In</button>
-      
-       <input type="checkbox"> Remember me<br></br>
-           
-           Forgot <a href="#"> password? </a>
-  </div>
-  </div>
-  
- 
-</form>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-5 col-md-6">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <?php
+                                        if(isset($_SESSION['success']))
+                                        {
+                                            echo $_SESSION['success'];
+                                            unset($_SESSION['success']);
+                                        }
+                                        ?>
+                                        <span id="error"></span>
+                                        <h1 class="h4 text-gray-900 mb-4">Pospoint-POS System</h1>
+                                    </div>
+                                    <form method="post" id="login_form">
+                                        <div class="form-group">
+                                            <input type="text" name="user_email" id="user_email" class="form-control" required data-parsley-type="email" data-parsley-trigger="keyup" placeholder="Enter Email Address..." />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="user_password" id="user_password" class="form-control" required  data-parsley-trigger="keyup" placeholder="Password" />
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="login_button" id="login_button" class="btn btn-primary btn-user btn-block">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script type="text/javascript" src="vendor/parsley/dist/parsley.min.js"></script>
 
 </body>
+
 </html>
+
+<script>
+
+$(document).ready(function(){
+
+    $('#login_form').parsley();
+
+    $('#login_form').on('submit', function(event){
+        event.preventDefault();
+        if($('#login_form').parsley().isValid())
+        {       
+            $.ajax({
+                url:"login_action.php",
+                method:"POST",
+                data:$(this).serialize(),
+                dataType:'json',
+                beforeSend:function()
+                {
+                    $('#login_button').attr('disabled', 'disabled');
+                    $('#login_button').val('wait...');
+                },
+                success:function(data)
+                {
+                    $('#login_button').attr('disabled', false);
+                    if(data.error != '')
+                    {
+                        $('#error').html(data.error);
+                        $('#login_button').val('Login');
+                    }
+                    else
+                    {
+                        window.location.href = "<?php echo $object->base_url; ?>dashboard.php";
+                    }
+                }
+            })
+        }
+    });
+
+});
+
+</script>

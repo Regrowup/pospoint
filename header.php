@@ -1,201 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Pospoint</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+<head>
 
-.topnav {
-  overflow: hidden;
-  background-color:black ;
-}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+    <title>Pospoint</title>
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-body {font-family: Arial, Helvetica, sans-serif;background-color: #ffff}
-* {box-sizing: border-box;}
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
+    <link rel="stylesheet" type="text/css" href="vendor/parsley/parsley.css"/>
 
-/* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/bootstrap-select.min.css"/>
 
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
+</head>
 
-button:hover {
-  opacity:1;
-}
+<body id="page-top">
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-}
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-}
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    
+                </div>
+                <?php
+                if($object->Get_restaurant_logo() != '')
+                {
+                    echo '<img src="'.$object->Get_restaurant_logo().'" class="img-fluid" />';
+                }
+                else
+                {
+                ?>
+                <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-text mx-3">Admin</div>
+                <?php
+                }
+                ?>
+            </a>
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 50px;
-}
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 30%; /* Could be more or less, depending on screen size */
-  border-radius: 5px;
-  shadow: 1px solid #0ff;
-}
+            <!-- Nav Item - Dashboard -->
+            <?php
+            if($object->is_master_user())
+            {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="category.php">
+                    <i class="fas fa-th-list"></i>
+                    <span>Category</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="table.php">
+                    <i class="fas fa-couch"></i>
+                    <span>Table</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tax.php">
+                    <i class="fas fa-percent"></i>
+                    <span>Tax</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="product.php">
+                    <i class="fas fa-utensils"></i>
+                    <span>Product</span></a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="posapp/">
+                    <i class="far fa-edit"></i>
+                    <span>POS</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user.php">
+                    <i class="fas fa-users-cog"></i>
+                    <span>User</span></a>
+            </li>
+            <?php
+            }
+            if($object->is_waiter_user() || $object->is_master_user())
+            {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="order.php">
+                    <i class="far fa-edit"></i>
+                    <span>Order</span></a>
+            </li>
+         
+            <?php
+            }
+            if($object->is_cashier_user() || $object->is_master_user())
+            {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="billing.php">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Billing</span></a>
+            </li>
+         
+            <?php
+            }
+            ?>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
-/* Style the horizontal ruler */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
- 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #f1f1f1;
-}
+        </ul>
+        <!-- End of Sidebar -->
 
-.close:hover,
-.close:focus {
-  color: #f44336;
-  cursor: pointer;
-}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-/* Clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+            <!-- Main Content -->
+            <div id="content">
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
-  }
-</style>
-<style>
-body {
-    background-color: #eee
-}
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-.form-control {
-    background-color: #212529;
-    border: 1px solid #fff;
-    caret-color: #fff;
-    color: #fff;
-    height: 45px;
-    margin-top: 14px
-}
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-.form-control:focus {
-    background-color: #212529;
-    box-shadow: none;
-    border: 1px solid #fff;
-    color: #fff
-}
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-.form-select {
-    background-color: #212529;
-    border: 1px solid #fff;
-    color: #fff;
-    font-size: 15px;
-    height: 45px
-}
+                        <div class="topbar-divider d-none d-sm-block"></div>
 
-.form-select:focus {
-    box-shadow: none;
-    border: 1px solid #fff
-}
+                        <?php
+                        $object->query = "
+                        SELECT * FROM user_table 
+                        WHERE user_id = '".$_SESSION['user_id']."'
+                        ";
 
-.signup-button {
-    height: 48px
-}
-</style>
-<body>
+                        $user_result = $object->get_result();
 
+                        $user_name = '';
+                        $user_profile_image = '';
+                        foreach($user_result as $row)
+                        {
+                            if($row['user_name'] != '')
+                            {
+                                $user_name = $row['user_name'];
+                            }
+                            else
+                            {
+                                $user_name = 'Master';
+                            }
 
+                            if($row['user_profile'] != '')
+                            {
+                                $user_profile_image = $row['user_profile'];
+                            }
+                            else
+                            {
+                                $user_profile_image = 'img/undraw_profile.svg';
+                            }
+                        }
+                        ?>
 
-<div class="topnav">
-  <a href="/">Home</a>
- 
-  <a href="/login.php">Login</a>
-  <a href="/register.php">Sign Up</a>
-</div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="user_profile_name"><?php echo $user_name; ?></span>
+                                <img class="img-profile rounded-circle"
+                                    src="<?php echo $user_profile_image; ?>" id="user_profile_image">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="profile.php">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <?php
+                                if($object->is_master_user())
+                                {
+                                ?>
+                                <a class="dropdown-item" href="setting.php">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <?php
+                                }
+                                ?>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
 
+                    </ul>
 
+                </nav>
+                <!-- End of Topbar -->
 
-
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
